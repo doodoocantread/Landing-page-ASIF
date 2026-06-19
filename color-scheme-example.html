@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASIF UP — New Colour Scheme (Green + Orange)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#09795b; --primary-hover:#0a8d6a; --dark-green:#055c45;
+    --hero-1:#032b20; --hero-2:#064d3a; --orange:#F7941D; --orange-hover:#ffa838;
+    --charcoal:#2A2A2A; --brand-bg:#F1F8F5; --orange-bg:#FFF4E6;
+    --ink:#06251B; --border:#CDE7DE;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Montserrat',sans-serif;color:var(--charcoal);background:#fff;line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{font-weight:800}
+  .head{background:linear-gradient(135deg,var(--hero-1),var(--hero-2) 55%,var(--dark-green));color:#fff;padding:60px 0 52px}
+  .head .eyebrow{color:var(--orange);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+  .head h1{font-size:32px;margin:10px 0 12px}
+  .head p{max-width:640px;opacity:.88;font-size:15px}
+  .sec{padding:50px 0;border-bottom:1px solid #eee}
+  .sec h2{font-size:22px;color:var(--dark-green);margin-bottom:6px}
+  .sec .tip{font-size:14px;color:#6a6a6a;max-width:780px;margin-bottom:26px}
+
+  /* palette */
+  .sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .sw{border:1px solid #eee;border-radius:12px;overflow:hidden}
+  .sw .chip{height:78px}
+  .sw .meta{padding:10px 12px}
+  .sw .meta b{font-size:13px;display:block}
+  .sw .meta code{font-size:12px;color:#888}
+  .sw .role{font-size:11px;color:#9a9a9a;display:block;margin-top:3px}
+
+  /* before/after */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:14px}
+  .ba .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+  .before .tag{background:#fdecea;color:#c0392b}
+  .after .tag{background:rgba(9,121,91,.12);color:var(--dark-green)}
+
+  /* demo: stats bar */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;border-radius:12px;padding:22px 16px;text-align:center}
+  .stats.old{background:#424143}
+  .stats.new{background:linear-gradient(135deg,var(--dark-green),var(--primary))}
+  .stats .n{font-size:24px;font-weight:800;line-height:1}
+  .stats.old .n{color:#0EB689}
+  .stats.new .n{color:var(--orange)}
+  .stats .l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px}
+
+  /* demo: how steps */
+  .how{border-radius:12px;padding:26px 20px;color:#fff}
+  .how.old{background:#424143}
+  .how.new{background:linear-gradient(160deg,var(--hero-1),var(--dark-green))}
+  .how h4{font-size:15px;margin-bottom:16px}
+  .steps{display:flex;gap:18px;flex-wrap:wrap}
+  .step{flex:1;min-width:80px}
+  .num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;margin-bottom:8px}
+  .how.old .num{background:#0EB689}
+  .how.new .num{background:var(--orange)}
+  .step p{font-size:11px;opacity:.8}
+
+  /* demo: footer */
+  .ft{border-radius:12px;padding:22px 20px;color:rgba(255,255,255,.55);font-size:12px;display:flex;justify-content:space-between;align-items:center}
+  .ft.old{background:#1A1A1A}
+  .ft.new{background:var(--ink)}
+  .ft b{color:#fff;font-weight:800;font-size:14px}
+
+  /* buttons */
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{padding:11px 22px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;display:inline-block;border:none;cursor:pointer}
+  .b-green{background:var(--primary);color:#fff}
+  .b-orange{background:var(--orange);color:#fff}
+  .b-outline{background:transparent;border:1.5px solid var(--primary);color:var(--primary)}
+
+  .note{font-size:12.5px;color:#8a8a8a;margin-top:16px;padding-left:14px;border-left:3px solid var(--border)}
+  @media(max-width:760px){.ba{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="head"><div class="wrap">
+  <span class="eyebrow">ASIF Foundation · Colour System</span>
+  <h1>New scheme: green primary, orange accent, black only when needed</h1>
+  <p>Re-anchored on ASIF green <b>#09795b</b> and orange <b>#F7941D</b>. The three big black blocks — stats bar, "How it works", footer — are now green-based, and orange is introduced as the accent that guides the eye. Black survives only as text and a deep green-black footer.</p>
+</div></div>
+
+<!-- palette -->
+<section class="sec"><div class="wrap">
+  <h2>The palette</h2>
+  <p class="tip">A disciplined system: one green family for structure, orange strictly for accents/CTAs, near-black reserved for text.</p>
+  <div class="sw-grid">
+    <div class="sw"><div class="chip" style="background:#09795b"></div><div class="meta"><b>ASIF Green</b><code>#09795b</code><span class="role">Primary · buttons, headings, fills</span></div></div>
+    <div class="sw"><div class="chip" style="background:#055c45"></div><div class="meta"><b>Deep Green</b><code>#055c45</code><span class="role">Gradients, dark headings</span></div></div>
+    <div class="sw"><div class="chip" style="background:#032b20"></div><div class="meta"><b>Forest</b><code>#032b20</code><span class="role">Hero / dark section base</span></div></div>
+    <div class="sw"><div class="chip" style="background:#F7941D"></div><div class="meta"><b>ASIF Orange</b><code>#F7941D</code><span class="role">Accent · CTAs, numbers, steps</span></div></div>
+    <div class="sw"><div class="chip" style="background:#FFF4E6"></div><div class="meta"><b>Orange Tint</b><code>#FFF4E6</code><span class="role">Soft accent backgrounds</span></div></div>
+    <div class="sw"><div class="chip" style="background:#F1F8F5"></div><div class="meta"><b>Green Tint</b><code>#F1F8F5</code><span class="role">Section backgrounds</span></div></div>
+    <div class="sw"><div class="chip" style="background:#06251B"></div><div class="meta"><b>Green-Black</b><code>#06251B</code><span class="role">Footer (replaces pure black)</span></div></div>
+    <div class="sw"><div class="chip" style="background:#2A2A2A"></div><div class="meta"><b>Ink</b><code>#2A2A2A</code><span class="role">Text only — minimal fill</span></div></div>
+  </div>
+</div></section>
+
+<!-- stats bar -->
+<section class="sec"><div class="wrap">
+  <h2>Stats bar</h2>
+  <p class="tip">Was a flat charcoal slab. Now a green gradient with <b>orange numerals</b> — on-brand and higher contrast.</p>
+  <div class="ba">
+    <div class="before"><span class="tag">Before — charcoal + green</span>
+      <div class="stats old">
+        <div><div class="n">127+</div><div class="l">Organizations</div></div>
+        <div><div class="n">6</div><div class="l">Modules</div></div>
+        <div><div class="n">99.9%</div><div class="l">Uptime</div></div>
+        <div><div class="n">0đ</div><div class="l">Cost</div></div>
+      </div>
+    </div>
+    <div class="after"><span class="tag">After — green + orange</span>
+      <div class="stats new">
+        <div><div class="n">127+</div><div class="l">Organizations</div></div>
+        <div><div class="n">6</div><div class="l">Modules</div></div>
+        <div><div class="n">99.9%</div><div class="l">Uptime</div></div>
+        <div><div class="n">0đ</div><div class="l">Cost</div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- how it works -->
+<section class="sec"><div class="wrap">
+  <h2>"How it works" section</h2>
+  <p class="tip">The biggest black block on the page. Now deep-green, with <b>orange step numbers</b> that lead the eye 1 → 4.</p>
+  <div class="ba">
+    <div class="before"><span class="tag">Before — charcoal block</span>
+      <div class="how old"><h4>Lên sóng trong 4 bước</h4>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><p>Đăng ký</p></div>
+          <div class="step"><div class="num">2</div><p>Thiết lập</p></div>
+          <div class="step"><div class="num">3</div><p>Đào tạo</p></div>
+          <div class="step"><div class="num">4</div><p>Vận hành</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="after"><span class="tag">After — deep green + orange</span>
+      <div class="how new"><h4>Lên sóng trong 4 bước</h4>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><p>Đăng ký</p></div>
+          <div class="step"><div class="num">2</div><p>Thiết lập</p></div>
+          <div class="step"><div class="num">3</div><p>Đào tạo</p></div>
+          <div class="step"><div class="num">4</div><p>Vận hành</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- footer -->
+<section class="sec"><div class="wrap">
+  <h2>Footer</h2>
+  <p class="tip">Pure <code>#1A1A1A</code> black → deep green-black <code>#06251B</code>. Reads almost as dark, but warmer and on-brand.</p>
+  <div class="ba">
+    <div class="before"><span class="tag">Before — pure black</span>
+      <div class="ft old"><b>ASIF</b><span>© 2026 · UP — Unified Platform</span></div>
+    </div>
+    <div class="after"><span class="tag">After — green-black</span>
+      <div class="ft new"><b>ASIF</b><span>© 2026 · UP — Unified Platform</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- buttons -->
+<section class="sec"><div class="wrap">
+  <h2>Action colours</h2>
+  <p class="tip">Green is the default action; orange is the high-emphasis "Apply now" CTA so the most important click stands out.</p>
+  <div class="btns">
+    <a class="btn b-green" href="#">Dùng thử miễn phí</a>
+    <a class="btn b-orange" href="#">Đăng ký ngay · Apply now →</a>
+    <a class="btn b-outline" href="#">Khám phá tính năng ↓</a>
+  </div>
+  <p class="note">Rule of thumb: never more than one orange element competing in a viewport. Orange = "look here." Overuse and it stops meaning anything. All these tokens are now live in <code>index.html</code>.</p>
+</div></section>
+
+</body>
+</html>

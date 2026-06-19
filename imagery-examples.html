@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UP – Imagery Direction & Visual Examples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#0EB689; --primary-hover:#0ccf9e; --dark-green:#007860;
+    --hero-1:#002D22; --hero-2:#004D38; --orange:#F7941D;
+    --charcoal:#424143; --brand-bg:#F4FAF7; --border:#D1EDE5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Montserrat',sans-serif;color:var(--charcoal);background:#fff;line-height:1.6}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{font-weight:800}
+  .doc-head{background:linear-gradient(135deg,var(--hero-1),var(--hero-2) 55%,var(--dark-green));color:#fff;padding:64px 0 56px}
+  .doc-head .eyebrow{color:var(--primary);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+  .doc-head h1{font-size:34px;margin:10px 0 12px}
+  .doc-head p{max-width:620px;opacity:.85;font-size:15px}
+  .example{padding:56px 0;border-bottom:1px solid #eee}
+  .example .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;font-weight:800;font-size:14px}
+  .example .label{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .example h2{font-size:23px;color:var(--dark-green)}
+  .example .tip{font-size:14px;color:#6a6a6a;max-width:760px;margin:8px 0 28px}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .ba .col span{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+  .col.before span{background:#fdecea;color:#c0392b}
+  .col.after span{background:rgba(14,182,137,.12);color:var(--dark-green)}
+
+  /* ---- shared card chrome ---- */
+  .panel{border-radius:16px;overflow:hidden;border:1px solid var(--border);background:#fff}
+
+  /* 1. HERO PRODUCT MOCKUP */
+  .hero-demo{background:linear-gradient(135deg,var(--hero-1),var(--hero-2) 55%,var(--dark-green));border-radius:16px;padding:34px;display:grid;grid-template-columns:1fr 1.1fr;gap:26px;align-items:center;color:#fff}
+  .hero-demo h3{font-size:22px;line-height:1.25;margin-bottom:10px}
+  .hero-demo p{font-size:13px;opacity:.82;margin-bottom:16px}
+  .hero-demo .btn{display:inline-block;background:var(--primary);color:#fff;font-size:12px;font-weight:700;padding:9px 16px;border-radius:7px;text-decoration:none}
+  .old-hero{background:linear-gradient(135deg,var(--hero-1),var(--dark-green));border-radius:16px;padding:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .old-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:20px;color:#fff}
+  .old-card b{color:var(--primary);font-size:20px;display:block}
+  .old-card small{opacity:.6;font-size:11px}
+
+  /* 2. DUOTONE PHOTO */
+  .photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .photo{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#cdd6d2}
+  .photo svg{position:absolute;inset:0;width:100%;height:100%}
+  .photo .cap{position:absolute;left:14px;bottom:12px;color:#fff;font-size:12px;font-weight:600;z-index:3;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+  .photo.plain .duo{display:none}
+
+  /* 3. ICONS */
+  .icon-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .icon-card{border:1.5px solid var(--border);border-radius:14px;padding:22px;background:#fff}
+  .icon-card .emoji{font-size:30px}
+  .icon-card.after{border-color:rgba(14,182,137,.4)}
+  .icon-card h4{font-size:15px;color:var(--dark-green);margin:12px 0 4px}
+  .icon-card p{font-size:12.5px;color:#6a6a6a}
+  .ic{width:46px;height:46px;border-radius:11px;background:var(--brand-bg);display:flex;align-items:center;justify-content:center}
+  .ic svg{width:24px;height:24px;stroke:var(--primary);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+  /* 4. LOGO STRIP */
+  .logos{display:flex;flex-wrap:wrap;gap:34px;align-items:center;justify-content:center;padding:30px;background:var(--brand-bg);border-radius:14px}
+  .logos .lg{display:flex;align-items:center;gap:9px;color:#9aa6a1;font-weight:800;font-size:17px;letter-spacing:.02em}
+  .logos .lg svg{width:26px;height:26px;fill:#9aa6a1}
+
+  /* 5. TEXTURE */
+  .tex{position:relative;border-radius:16px;overflow:hidden;background:var(--brand-bg);padding:46px;text-align:center}
+  .tex .blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.5}
+  .tex h3{color:var(--dark-green);position:relative}
+  .tex p{position:relative;font-size:13px;color:#6a6a6a;max-width:480px;margin:8px auto 0}
+  .grid-bg{background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:26px 26px}
+
+  .note{font-size:12.5px;color:#8a8a8a;margin-top:14px;padding-left:14px;border-left:3px solid var(--border)}
+  @media(max-width:760px){.ba,.hero-demo,.old-hero,.photo-row,.icon-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="doc-head">
+  <div class="wrap">
+    <span class="eyebrow">UP – Unified Platform · Art Direction</span>
+    <h1>Imagery direction & visual examples</h1>
+    <p>Five image treatments to lift the landing page from "emoji + boxes" to a premium product site — built in your exact brand palette. Every example below is live HTML/SVG you can lift straight into <code>index.html</code>.</p>
+  </div>
+</div>
+
+<!-- 1 -->
+<section class="example"><div class="wrap">
+  <div class="label"><span class="num">1</span><h2>Put the product in the hero</h2></div>
+  <p class="tip">Biggest single win. Replace the four abstract glass cards with a real dashboard mockup. People buy software faster when they can <em>see</em> it. (SVG mockup below — swap for a real screenshot when the UI is ready.)</p>
+  <div class="ba">
+    <div class="col before"><span>Before — abstract cards</span>
+      <div class="old-hero">
+        <div class="old-card"><b>6 Modules</b><small>Hợp nhất vận hành</small></div>
+        <div class="old-card"><b>0 VNĐ</b><small>Tài trợ trọn đời</small></div>
+        <div class="old-card"><b>Azure</b><small>Bảo mật dữ liệu</small></div>
+        <div class="old-card"><b>99.9%</b><small>Uptime cam kết</small></div>
+      </div>
+    </div>
+    <div class="col after"><span>After — product mockup</span>
+      <div class="hero-demo">
+        <div>
+          <h3>Một nền tảng.<br>Toàn bộ tổ chức.</h3>
+          <p>Dự án, tài chính, nhân sự — một nguồn sự thật.</p>
+          <a class="btn" href="#">Dùng thử miễn phí</a>
+        </div>
+        <div class="panel" style="background:#fff">
+          <!-- dashboard mockup -->
+          <svg viewBox="0 0 320 220" width="100%" style="display:block">
+            <rect width="320" height="220" fill="#fff"/>
+            <rect width="320" height="34" fill="#F4FAF7"/>
+            <circle cx="16" cy="17" r="4" fill="#0EB689"/>
+            <rect x="28" y="13" width="70" height="8" rx="4" fill="#cfe9e1"/>
+            <rect x="0" y="34" width="78" height="186" fill="#02382b"/>
+            <rect x="14" y="52" width="50" height="7" rx="3.5" fill="#0EB689"/>
+            <rect x="14" y="70" width="44" height="6" rx="3" fill="#3f6f63"/>
+            <rect x="14" y="86" width="48" height="6" rx="3" fill="#3f6f63"/>
+            <rect x="14" y="102" width="40" height="6" rx="3" fill="#3f6f63"/>
+            <!-- cards -->
+            <rect x="92" y="48" width="100" height="50" rx="8" fill="#F4FAF7"/>
+            <rect x="104" y="60" width="34" height="6" rx="3" fill="#9fc7bb"/>
+            <text x="104" y="88" font-family="Montserrat" font-weight="800" font-size="17" fill="#0EB689">80%</text>
+            <rect x="204" y="48" width="100" height="50" rx="8" fill="#FFF4E6"/>
+            <rect x="216" y="60" width="34" height="6" rx="3" fill="#e9c79a"/>
+            <text x="216" y="88" font-family="Montserrat" font-weight="800" font-size="17" fill="#F7941D">127</text>
+            <!-- chart -->
+            <rect x="92" y="110" width="212" height="92" rx="8" fill="#F4FAF7"/>
+            <polyline points="104,180 132,168 160,172 188,150 216,156 244,132 286,124" fill="none" stroke="#0EB689" stroke-width="2.5"/>
+            <g fill="#0EB689"><circle cx="132" cy="168" r="3"/><circle cx="188" cy="150" r="3"/><circle cx="244" cy="132" r="3"/><circle cx="286" cy="124" r="3"/></g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Implementation: drop a screenshot into the existing <code>.hero-visual</code> grid, or keep this SVG as a lightweight placeholder. Add <code>box-shadow:0 30px 60px rgba(0,0,0,.3)</code> + a slight <code>rotate(-2deg)</code> for a floating-app feel.</p>
+</div></section>
+
+<!-- 2 -->
+<section class="example"><div class="wrap">
+  <div class="label"><span class="num">2</span><h2>Human photography with a brand duotone</h2></div>
+  <p class="tip">You sell to NPOs — show the people they serve. A green duotone overlay keeps every photo on-brand and consistent, so stock photography never looks like clip-art. Compare a raw photo (left) vs duotone-treated (middle/right).</p>
+  <div class="photo-row">
+    <div class="photo plain">
+      <!-- simulated raw photo -->
+      <svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="r1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9c4bf"/><stop offset="1" stop-color="#8fa39c"/></linearGradient></defs><rect width="200" height="150" fill="url(#r1)"/><circle cx="70" cy="64" r="26" fill="#9aa8a2"/><rect x="40" y="92" width="60" height="58" rx="12" fill="#9aa8a2"/><circle cx="130" cy="72" r="20" fill="#aeb9b3"/><rect x="108" y="96" width="46" height="54" rx="10" fill="#aeb9b3"/></svg>
+      <span class="cap">Raw stock — off-brand</span>
+    </div>
+    <div class="photo">
+      <svg class="img" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><rect width="200" height="150" fill="#8fa39c"/><circle cx="70" cy="64" r="26" fill="#a7b3ad"/><rect x="40" y="92" width="60" height="58" rx="12" fill="#a7b3ad"/><circle cx="130" cy="72" r="20" fill="#b6c0bb"/><rect x="108" y="96" width="46" height="54" rx="10" fill="#b6c0bb"/></svg>
+      <svg class="duo" viewBox="0 0 200 150"><defs><linearGradient id="d1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#007860" stop-opacity=".85"/><stop offset="1" stop-color="#0EB689" stop-opacity=".55"/></linearGradient></defs><rect width="200" height="150" fill="url(#d1)" style="mix-blend-mode:multiply"/></svg>
+      <span class="cap">Duotone green — on-brand</span>
+    </div>
+    <div class="photo">
+      <svg class="img" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><rect width="200" height="150" fill="#8fa39c"/><circle cx="100" cy="58" r="24" fill="#a7b3ad"/><rect x="68" y="84" width="64" height="66" rx="12" fill="#a7b3ad"/></svg>
+      <svg class="duo" viewBox="0 0 200 150"><defs><linearGradient id="d2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#002D22" stop-opacity=".88"/><stop offset="1" stop-color="#0EB689" stop-opacity=".5"/></linearGradient></defs><rect width="200" height="150" fill="url(#d2)" style="mix-blend-mode:multiply"/></svg>
+      <span class="cap">Works on any source photo</span>
+    </div>
+  </div>
+  <p class="note">CSS recipe for a real photo: <code>filter:grayscale(1) contrast(1.1);</code> on the <code>&lt;img&gt;</code> + an absolutely-positioned overlay <code>background:linear-gradient(135deg,#007860,#0EB689); mix-blend-mode:multiply; opacity:.7;</code>. Use these in the Problem, Audience and Impact sections.</p>
+</div></section>
+
+<!-- 3 -->
+<section class="example"><div class="wrap">
+  <div class="label"><span class="num">3</span><h2>Custom line icons, not emoji</h2></div>
+  <p class="tip">Emoji render differently on every device and instantly signal "template." One consistent SVG icon set in your green is the highest design-credibility-per-effort change you can make.</p>
+  <div class="icon-row">
+    <div class="icon-card before"><div class="emoji">🗂️</div><h4>Before — emoji</h4><p>Inconsistent across OS, not brand-colored, no control over weight.</p></div>
+    <div class="icon-card after">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg></div>
+      <h4>Dự án / Projects</h4><p>Single stroke weight, brand green, pixel-perfect at any size.</p>
+    </div>
+    <div class="icon-card after">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-8"/><path d="M16 8h5v5"/></svg></div>
+      <h4>Báo cáo / Reports</h4><p>Matches the chart in your stats — visual language stays unified.</p>
+    </div>
+  </div>
+  <p class="note">Free, consistent sets that match this style: <strong>Lucide</strong>, <strong>Phosphor</strong>, or <strong>Heroicons (outline)</strong>. Set <code>stroke:var(--primary)</code> and one <code>stroke-width</code> globally so all six modules feel like a family.</p>
+</div></section>
+
+<!-- 4 -->
+<section class="example"><div class="wrap">
+  <div class="label"><span class="num">4</span><h2>Turn "127+ organizations" into a logo strip</h2></div>
+  <p class="tip">A number tells; logos prove. A greyscale partner/NPO strip below the hero or stats bar gives instant credibility. Greyscale keeps it calm and on-brand.</p>
+  <div class="logos">
+    <div class="lg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>HopeEd</div>
+    <div class="lg"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/></svg>GreenRoots</div>
+    <div class="lg"><svg viewBox="0 0 24 24"><path d="M12 2l10 18H2z"/></svg>CareVN</div>
+    <div class="lg"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 6-8 11-8 11z"/></svg>KidsFirst</div>
+    <div class="lg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="#fff"/></svg>Australis</div>
+  </div>
+  <p class="note">Use real partner logos at ~28px height, <code>filter:grayscale(1);opacity:.55;</code> and fade to full color on hover. If logos aren't cleared for use, keep it as anonymized "sector" badges instead.</p>
+</div></section>
+
+<!-- 5 -->
+<section class="example"><div class="wrap">
+  <div class="label"><span class="num">5</span><h2>Give flat sections depth with texture</h2></div>
+  <p class="tip">Your white/mint sections are flat. Soft brand-color gradient "blobs" and a faint grid add depth without competing with content. Subtle is the whole point.</p>
+  <div class="tex grid-bg">
+    <div class="blob" style="width:220px;height:220px;background:#0EB689;top:-60px;left:-40px"></div>
+    <div class="blob" style="width:180px;height:180px;background:#F7941D;bottom:-50px;right:-30px;opacity:.35"></div>
+    <h3>6 phân hệ, 1 hệ sinh thái</h3>
+    <p>The same section copy — now sitting on a surface with subtle depth instead of flat white.</p>
+  </div>
+  <p class="note">Two absolutely-positioned blurred divs + a faint CSS background-grid. Costs nothing in performance and works behind any section. Keep opacity low (&lt;0.5) so text contrast stays AA.</p>
+</div></section>
+
+<section class="example" style="border:none;background:var(--brand-bg)"><div class="wrap">
+  <div class="label"><span class="num">★</span><h2>Suggested priority order</h2></div>
+  <p class="tip" style="max-width:none">
+    <strong>1.</strong> Hero product mockup (sells the software) →
+    <strong>2.</strong> Swap emoji for Lucide icons (kills "template" look) →
+    <strong>3.</strong> Duotone human photos in Problem/Audience/Impact (emotional pull) →
+    <strong>4.</strong> Logo/trust strip (proof) →
+    <strong>5.</strong> Background texture (polish).<br><br>
+    Do 1 + 2 first — together they'll change the entire perception of the page for a few hours of work. Want me to apply any of these directly to <code>index.html</code>?
+  </p>
+</div></section>
+
+</body>
+</html>
