@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UP – Unified Platform | Nền tảng quản trị số dành cho NPO</title>
+    <!-- Import Montserrat Font exactly as specified in brief -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* BRAND IDENTITY SYSTEM (Section 6) */
+        :root {
+            --primary: #0EB689;
+            --primary-hover: #0ccf9e;
+            --dark-green: #007860;
+            --hero-grad-1: #002D22;
+            --hero-grad-2: #004D38;
+            --orange: #F7941D;
+            --charcoal: #424143;
+            --brand-bg: #F4FAF7;
+            --white: #FFFFFF;
+            --near-black: #1A1A1A;
+            --border-color: #D1EDE5;
+        }
+
+        /* RESET & BASE STYLES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--charcoal);
+        }
+
+        body {
+            background-color: var(--white);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* TYPOGRAPHY RULES (Section 6.3) */
+        h1, h2, h3, h4 {
+            font-weight: 800;
+        }
+
+        .eyebrow {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--dark-green);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .section-subtext {
+            font-size: 16px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px auto;
+            color: #757575;
+        }
+
+        /* LAYOUT UTILITIES (Section 6.4) */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        /* BUTTON STYLES (Section 6.5) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2rem;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--dark-green);
+        }
+
+        .btn-white:hover {
+            background-color: #f0faf7;
+            transform: translateY(-1px);
+        }
+
+        /* SCROLL REVEAL ANIMATIONS (Section 6.6) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* INTERACTIVE CARD EFFECTS */
+        .hover-card {
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hover-card:hover {
+            border-color: var(--primary) !important;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(14, 182, 137, 0.12);
+        }
+
+        /* SECTION #1: NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.2s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 84px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo img {
+            height: 52px; /* Brief requires min 30px height */
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: var(--white) !important;
+            padding: 0.45rem 1.1rem;
+            border-radius: 6px;
+        }
+
+        /* SECTION #2: HERO */
+        .hero-section {
+            background: linear-gradient(135deg, var(--hero-grad-1) 0%, var(--hero-grad-2) 50%, var(--dark-green) 100%);
+            padding: 160px 0 100px 0;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .hero-content .en-title {
+            font-size: 28px;
+            font-weight: 400;
+            opacity: 0.85;
+            margin-bottom: 24px;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            opacity: 0.9;
+            margin-bottom: 36px;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* Visual Abstract Element mimicking photo gallery grids from image_969a1d.jpg using CSS/SVG shapes */
+        .hero-visual {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .visual-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(4px);
+        }
+
+        .visual-card h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .visual-card p {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* SECTION #3: STATS BAR */
+        .stats-bar {
+            background-color: var(--charcoal);
+            padding: 30px 0;
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 24px;
+        }
+
+        .stat-item .stat-num {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .stat-item .stat-label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        /* SECTION #4: PROBLEM (VÌ SAO UP?) */
+        .problem-section {
+            background-color: var(--brand-bg);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .problem-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            border-top: 4px solid var(--orange); /* Section 6.2 Accent line spec */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .problem-card .icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .problem-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+        }
+
+        .problem-card p {
+            font-size: 15px;
+            color: #616161;
+        }
+
+        /* SECTION #5: FEATURES (TÍNH NĂNG) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1.5px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .feature-card .icon {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--dark-green);
+        }
+
+        /* SECTION #6: HOW IT WORKS */
+        .how-section {
+            background-color: var(--charcoal);
+            color: var(--white);
+        }
+
+        .how-section .section-title {
+            color: var(--white);
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .step-card {
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-num {
+            width: 44px;
+            height: 44px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .step-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        /* SECTION #7: TARGET AUDIENCE */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .audience-card {
+            border-radius: 16px;
+            padding: 40px;
+            border: 1.5px solid var(--border-color);
+        }
+
+        .audience-card.vn-npo { background-color: var(--brand-bg); }
+        .audience-card.int-npo { background-color: #FFF4E6; border-color: #FFE0B2; }
+
+        .audience-card h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .vn-npo .tag { background: rgba(14, 182, 137, 0.1); color: var(--dark-green); border: 1px solid rgba(14, 182, 137, 0.2); }
+        .int-npo .tag { background: rgba(247, 148, 29, 0.1); color: #D87000; border: 1px solid rgba(247, 148, 29, 0.2); }
+
+        /* SECTION #8: IMPACT & METRICS */
+        .impact-section {
+            background-color: var(--brand-bg);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .quote-block {
+            border-left: 5px solid var(--primary);
+            padding-left: 24px;
+        }
+
+        .quote-text {
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .quote-author {
+            font-weight: 700;
+            font-size: 14px;
+            color: #616161;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .metric-card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1.5px solid var(--border-color);
+            text-align: center;
+        }
+
+        .metric-card .num {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .metric-card .lbl {
+            font-size: 13px;
+            color: #616161;
+            font-weight: 500;
+        }
+
+        /* SECTION #9: BOTTOM CTA */
+        .bottom-cta {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .bottom-cta h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .bottom-cta p {
+            max-width: 650px;
+            margin: 0 auto 36px auto;
+            opacity: 0.9;
+        }
+
+        /* SECTION #10: FOOTER */
+        footer {
+            background-color: var(--near-black);
+            padding: 60px 0;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo img {
+            height: 48px;
+            width: auto;
+            opacity: 0.65;
+            display:block;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            margin-left: 24px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* RESPONSIVE RESPONSIVENESS (Section 6.4 Breakpoint) */
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+            .nav-menu { display: none; } /* Hide layout items per specification */
+
+            .hero-grid, .problem-grid, .features-grid, .how-grid, .audience-grid, .impact-grid, .metrics-grid, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section { padding-top: 120px; text-align: center; }
+            .hero-actions { justify-content: center; flex-direction: column; }
+            .footer-grid { flex-direction: column; gap: 24px; text-align: center; }
+            .footer-links a { margin: 0 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- #1 NAVIGATION -->
+    <header id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <!-- Direct verbatim link to required asset -->
+                <img src="assets/ASIF_LOGO1.png" alt="ASIF Foundation Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#why-up">Vì sao UP?</a></li>
+                <li><a href="#features">Tính năng</a></li>
+                <li><a href="#how-it-works">Cách dùng</a></li>
+                <li><a href="#audience">Đối tượng</a></li>
+                <li><a href="mailto:support@asif.foundation" class="btn nav-cta">Đăng ký →</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- #2 HERO SECTION -->
+    <section class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <span class="eyebrow">ASIF Foundation · Powered for NPOs</span>
+                <h1>Một nền tảng.<br>Toàn bộ tổ chức.</h1>
+                <div class="en-title">"One platform. Your entire organization."</div>
+                <p>UP – Unified Platform kết nối dự án, tài chính, nhân sự, nhà tài trợ và người thụ hưởng trong một hệ thống duy nhất — thiết kế riêng cho NPOs tại Việt Nam và Australasia.</p>
+                <div class="hero-actions">
+                    <a href="mailto:support@asif.foundation" class="btn btn-primary">Đăng ký dùng thử miễn phí</a>
+                    <a href="#features" class="btn btn-outline">Khám phá tính năng ↓</a>
+                </div>
+            </div>
+            <div class="hero-visual reveal" style="transition-delay: 100ms;">
+                <div class="visual-card">
+                    <h4>6 Modules</h4>
+                    <p>Hợp nhất hoạt động vận hành</p>
+                </div>
+                <div class="visual-card" style="margin-top: 20px;">
+                    <h4>0 VNĐ</h4>
+                    <p>Tài trợ trọn đời cho NPO</p>
+                </div>
+                <div class="visual-card">
+                    <h4>Azure</h4>
+                    <img src="assets/ASIF_LOGO1.png" alt="ASIF Foundation Logo">
+                    <p>Bảo mật dữ liệu tuyệt đối</p>
+                </div>
+                <div class="visual-card" style="margin-top: 20px;">
+                    <h4>99.9%</h4>
+                    <p>Uptime hạ tầng cam kết</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- #3 STATS BAR -->
+    <div class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <div class="stat-num">127+</div>
+                <div class="stat-label">Tổ chức đang dùng / Organizations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">6</div>
+                <div class="stat-label">Phân hệ tích hợp / Integrated modules</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">99.9%</div>
+                <div class="stat-label">Uptime đảm bảo / Guaranteed uptime</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">0đ</div>
+                <div class="stat-label">Chi phí cho NPO / Cost for NPOs</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- #4 VÌ SAO UP? (PROBLEM) -->
+    <section id="why-up" class="problem-section">
+        <div class="container">
+            <h2 class="section-title reveal">Các NPO đang vận hành như thế này...</h2>
+            <p class="section-subtext reveal">Những thách thức thực tế khiến các tổ chức phi lợi nhuận tiêu tốn nguồn lực.</p>
+
+            <div class="problem-grid">
+                <div class="problem-card reveal">
+                    <div class="icon">🗂️</div>
+                    <h3>Dữ liệu rời rạc / Scattered data</h3>
+                    <p>Excel, Google Sheets, email, giấy tờ. Không có nguồn sự thật duy nhất. Báo cáo mất hàng ngày tổng hợp thủ công.</p>
+                </div>
+                <div class="problem-card reveal" style="transition-delay: 100ms;">
+                    <div class="icon">💸</div>
+                    <h3>Tài chính mù mờ / Opaque finances</h3>
+                    <p>Không theo dõi ngân sách dự án thời gian thực. Nhà tài trợ hỏi — mất 3 ngày mới có câu trả lời.</p>
+                </div>
+                <div class="problem-card reveal" style="transition-delay: 200ms;">
+                    <div class="icon">📉</div>
+                    <h3>Khó đo tác động / Unmeasured impact</h3>
+                    <p>Không hệ thống theo dõi người thụ hưởng. Báo cáo cuối năm dựa trên ước tính, không phải số liệu thực.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- #5 TÍNH NĂNG (6 MODULES) -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title reveal">6 phân hệ, 1 hệ sinh thái</h2>
+            <p class="section-subtext reveal">Every module shares the same data layer — so your project manager, finance team, and program staff always see the same truth.</p>
+
+            <div class="features-grid">
+                <div class="feature-card hover-card reveal">
+                    <div class="icon">📁</div>
+                    <h3>Dự án / Projects</h3>
+                    <p>Lập kế hoạch, phân công, theo dõi tiến độ. Gắn kết trực tiếp với ngân sách và người thụ hưởng.</p>
+                </div>
+                <div class="feature-card hover-card reveal" style="transition-delay: 80ms;">
+                    <div class="icon">💰</div>
+                    <h3>Tài chính / Finance</h3>
+                    <p>Ngân sách, giải ngân, quyết toán theo từng dự án và nhà tài trợ. Dashboard thời gian thực.</p>
+                </div>
+                <div class="feature-card hover-card reveal" style="transition-delay: 160ms;">
+                    <div class="icon">👥</div>
+                    <h3>Nhân sự / HR</h3>
+                    <p>Hồ sơ nhân viên, phân công công việc, đánh giá hiệu suất, quản lý tình nguyện viên.</p>
+                </div>
+                <div class="feature-card hover-card reveal">
+                    <div class="icon">🏆</div>
+                    <h3>Nhà tài trợ / Donors</h3>
+                    <p>CRM hồ sơ donor, lịch sử đóng góp, báo cáo tác động tự động gửi đến từng nhà tài trợ.</p>
+                </div>
+                <div class="feature-card hover-card reveal" style="transition-delay: 80ms;">
+                    <div class="icon">❤️</div>
+                    <h3>Người thụ hưởng / Beneficiaries</h3>
+                    <p>Hồ sơ cá nhân, lịch sử can thiệp, đo lường kết quả theo KPI.</p>
+                </div>
+                <div class="feature-card hover-card reveal" style="transition-delay: 160ms;">
+                    <div class="icon">📈</div>
+                    <h3>Báo cáo / Reports</h3>
+                    <p>Tổng hợp dữ liệu tất cả phân hệ, xuất báo cáo cho donor, hội đồng và cơ quan quản lý.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- #6 CÁCH TRIỂN KHAI -->
+    <section id="how-it-works" class="how-section">
+        <div class="container">
+            <h2 class="section-title reveal">Lên sóng trong 4 bước đơn giản</h2>
+            <p class="section-subtext reveal" style="color: rgba(255,255,255,0.65);">Go live in 4 simple steps — ASIF Foundation supports you at every stage at no cost.</p>
+
+            <div class="how-grid">
+                <div class="step-card reveal">
+                    <div class="step-num">1</div>
+                    <h3>Đăng ký & thẩm định</h3>
+                    <p>Apply & Verify — Gửi đơn đăng ký NPO. ASIF xét duyệt và ký MOA trong 5–7 ngày làm việc.</p>
+                </div>
+                <div class="step-card reveal" style="transition-delay: 100ms;">
+                    <div class="step-num">2</div>
+                    <h3>Thiết lập hệ thống</h3>
+                    <p>Onboarding — ASIF cấu hình môi trường riêng cho tổ chức. Kết nối SSO Microsoft 365 nếu có.</p>
+                </div>
+                <div class="step-card reveal" style="transition-delay: 200ms;">
+                    <div class="step-num">3</div>
+                    <h3>Đào tạo người dùng</h3>
+                    <p>Training — Đội ngũ ASIF và đối tác công nghệ hỗ trợ đào tạo và tài liệu hướng dẫn.</p>
+                </div>
+                <div class="step-card reveal" style="transition-delay: 300ms;">
+                    <div class="step-num">4</div>
+                    <h3>Vận hành & hỗ trợ</h3>
+                    <p>Go Live — Tổ chức bắt đầu sử dụng. ASIF duy trì hạ tầng và hỗ trợ kỹ thuật liên tục.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- #7 ĐỐI TƯỢNG -->
+    <section id="audience" class="audience-section">
+        <div class="container">
+            <h2 class="section-title reveal">UP phù hợp với ai?</h2>
+            <p class="section-subtext reveal">UP was built specifically for the operational realities of nonprofits — not adapted from a corporate ERP.</p>
+
+            <div class="audience-grid">
+                <div class="audience-card vn-npo reveal">
+                    <h3>🌱 Tổ chức phi lợi nhuận trong nước (Vietnamese NPOs)</h3>
+                    <div class="tag-container">
+                        <span class="tag">Giáo dục</span>
+                        <span class="tag">Y tế cộng đồng</span>
+                        <span class="tag">Môi trường</span>
+                        <span class="tag">Trẻ em & Gia đình</span>
+                        <span class="tag">Phát triển cộng đồng</span>
+                    </div>
+                </div>
+                <div class="audience-card int-npo reveal" style="transition-delay: 100ms;">
+                    <h3>🌏 Tổ chức NPO quốc tế tại Australasia (International NPOs)</h3>
+                    <div class="tag-container">
+                        <span class="tag">Australia-based</span>
+                        <span class="tag">Cross-border</span>
+                        <span class="tag">Impact reporting</span>
+                        <span class="tag">Multi-currency</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- #8 TÁC ĐỘNG & SỐ LIỆU -->
+    <section class="impact-section">
+        <div class="container impact-grid">
+            <div class="quote-block reveal">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 24px;">Kết quả thực tế từ cộng đồng UP</h2>
+                <p class="quote-text">"Trước khi dùng UP, chúng tôi cần 3 ngày để tổng hợp báo cáo quý. Bây giờ chỉ cần 20 phút — số liệu luôn chính xác, minh bạch với nhà tài trợ."</p>
+                <div class="quote-author">— Quản lý chương trình, NPO tại TP.HCM</div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card reveal">
+                    <div class="num">80%</div>
+                    <div class="lbl">Giảm thời gian làm báo cáo</div>
+                </div>
+                <div class="metric-card reveal" style="transition-delay: 80ms;">
+                    <div class="num">3×</div>
+                    <div class="lbl">Tăng tốc độ quyết toán</div>
+                </div>
+                <div class="metric-card reveal" style="transition-delay: 160ms;">
+                    <div class="num">100%</div>
+                    <div class="lbl">Minh bạch với nhà tài trợ</div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="num">0</div>
+                    <div class="lbl">Sự cố bảo mật / Security incidents</div>
+                </div>
+                <div class="metric-card reveal" style="transition-delay: 80ms;">
+                    <div class="num">5+</div>
+                    <div class="lbl">Năm vận hành liên tục</div>
+                </div>
+                <div class="metric-card reveal" style="transition-delay: 160ms;">
+                    <div class="num">24/7</div>
+                    <div class="lbl">Hỗ trợ kỹ thuật / Technical support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- #9 CTA CUỐI TRANG -->
+    <section class="bottom-cta">
+        <div class="container reveal">
+            <h2>Sẵn sàng chuyển đổi số tổ chức của bạn?</h2>
+            <p>UP hoàn toàn miễn phí cho các tổ chức phi lợi nhuận đủ điều kiện — được tài trợ bởi ASIF Foundation. / UP is completely free for eligible NPOs, sponsored by ASIF Foundation.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:support@asif.foundation" class="btn btn-white">Đăng ký ngay · Apply now →</a>
+                <a href="https://asif.foundation" target="_blank" class="btn btn-outline">Tìm hiểu ASIF Foundation ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- #10 FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/ASIF_LOGO2.png" alt="ASIF Logo">
+                </div>
+                <div class="footer-links">
+                    <a href="https://asif.foundation" target="_blank">asif.foundation</a>
+                    <a href="mailto:support@asif.foundation">support@asif.foundation</a>
+                </div>
+            </div>
+            <div style="text-align: center; font-size: 13px; alpha: 0.7;">
+                © 2026 ASIF Foundation · UP – Unified Platform for NPOs · Infrastructure operated by ASIF Foundation
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT (Section 7.2) -->
+    <script>
+        // Smooth scrolling fixed header drop shadow
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer Scroll Engine for Staggered reveals
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
