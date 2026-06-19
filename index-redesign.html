@@ -8,7 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ===== ASIF BRAND TOKENS — green primary, orange accent, black minimal ===== */
+  /* ===== ASIF BRAND TOKENS — green primary, orange accent, black minimal =====
+     NOTE: palette follows the client's later instruction (green #09795b + orange,
+     less black) which diverges from the brief's #0EB689 / charcoal sections. */
   :root{
     --primary:#09795b; --primary-hover:#0a8d6a; --dark-green:#055c45;
     --forest:#032b20; --hero-2:#064d3a;
@@ -21,11 +23,11 @@
   body{font-family:'Montserrat',sans-serif;color:var(--charcoal);background:#fff;line-height:1.7;font-size:16px;overflow-x:hidden}
   h1,h2,h3,h4{font-weight:800}
   .container{max-width:1200px;margin:0 auto;padding:0 24px}
-  section{padding:96px 0}
-  .eyebrow{font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--primary);margin-bottom:12px;display:inline-block}
+  section{padding:90px 0}
+  .eyebrow{font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--primary);margin-bottom:12px;display:inline-block}
   .eyebrow.on-dark{color:var(--orange)}
-  .section-title{font-size:34px;color:var(--dark-green);text-align:center;margin-bottom:10px;line-height:1.2}
-  .section-subtext{font-size:16px;text-align:center;max-width:720px;margin:0 auto 56px;color:var(--muted)}
+  .section-title{font-size:33px;color:var(--dark-green);text-align:center;margin-bottom:10px;line-height:1.2}
+  .section-subtext{font-size:16px;text-align:center;max-width:720px;margin:0 auto 50px;color:var(--muted)}
 
   /* icons */
   .ic{width:26px;height:26px;stroke:var(--primary);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -41,14 +43,12 @@
   .btn-orange:hover{background:var(--orange-hover);transform:translateY(-2px)}
   .btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff}
   .btn-outline:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
-  .btn-ghost{background:transparent;border:1.5px solid var(--primary);color:var(--primary)}
-  .btn-ghost:hover{background:var(--brand-bg)}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
   .reveal.active{opacity:1;transform:none}
 
-  /* ===== NAV ===== */
+  /* ===== #1 NAV ===== */
   header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.05);transition:box-shadow .2s}
   header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.07)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:82px;max-width:1200px;margin:0 auto;padding:0 24px}
@@ -59,7 +59,7 @@
   .nav-cta{background:var(--orange);color:#fff!important;padding:.5rem 1.2rem;border-radius:7px}
   .nav-cta:hover{background:var(--orange-hover)}
 
-  /* ===== HERO ===== */
+  /* ===== #2 HERO ===== */
   .hero{position:relative;background:linear-gradient(135deg,var(--forest) 0%,var(--hero-2) 55%,var(--dark-green) 100%);padding:150px 0 110px;color:#fff;overflow:hidden}
   .hero .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.4;pointer-events:none}
   .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
@@ -68,48 +68,40 @@
   .hero p{font-size:17px;opacity:.9;margin-bottom:34px;max-width:560px}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 
-  /* floating dashboard mockup */
+  /* hero visual: CSS/SVG mini cards + module preview (brief: "tùy biến sáng tạo") */
   .mock{position:relative}
   .mock .frame{border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.45);transform:rotate(-1.5deg);background:#fff}
   .mock .frame svg{display:block;width:100%}
   .float-card{position:absolute;background:#fff;border-radius:12px;padding:12px 16px;box-shadow:0 16px 34px rgba(0,0,0,.25);display:flex;align-items:center;gap:10px}
   .float-card .dot{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
-  .float-card b{font-size:16px;font-weight:800;color:var(--charcoal);line-height:1}
+  .float-card b{font-size:15px;font-weight:800;color:var(--charcoal);line-height:1}
   .float-card span{font-size:11px;color:var(--muted)}
   .float-a{top:-22px;right:24px}
   .float-b{bottom:-20px;left:-26px}
 
-  /* ===== TRUST STRIP ===== */
-  .trust{background:#fff;border-bottom:1px solid #eef3f1;padding:34px 0}
-  .trust .lead{text-align:center;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:22px}
-  .logos{display:flex;flex-wrap:wrap;gap:42px;align-items:center;justify-content:center}
-  .logos .lg{display:flex;align-items:center;gap:9px;color:#aab4b0;font-weight:800;font-size:18px;letter-spacing:.01em;transition:color .25s,filter .25s;filter:grayscale(1)}
-  .logos .lg svg{width:26px;height:26px;fill:#aab4b0;transition:fill .25s}
-  .logos .lg:hover{color:var(--primary);filter:none}
-  .logos .lg:hover svg{fill:var(--primary)}
+  /* ===== #3 STATS BAR ===== */
+  .stats-bar{background:linear-gradient(135deg,var(--dark-green),var(--primary));padding:30px 0;color:#fff}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:24px}
+  .stat-num{font-size:40px;font-weight:800;color:var(--orange);line-height:1.1;margin-bottom:4px}
+  .stat-label{font-size:13px;color:rgba(255,255,255,.72);font-weight:500}
 
-  /* ===== PROBLEM ===== */
-  .problem{background:var(--brand-bg)}
+  /* ===== shared cards ===== */
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .card{background:#fff;border-radius:16px;padding:32px;border:1.5px solid var(--border);transition:transform .2s,box-shadow .2s,border-color .2s}
-  .card:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(9,121,91,.1);border-color:var(--primary)}
-  .card.accent-orange{border-top:4px solid var(--orange)}
-  .card h3{font-size:18px;margin-bottom:10px;color:var(--charcoal)}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(9,121,91,.1);border-color:var(--primary)}
+  .card h3{font-size:18px;margin-bottom:10px}
   .card p{font-size:14.5px;color:var(--muted)}
 
-  /* ===== FEATURES (bento) ===== */
-  .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .feat{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:30px;transition:transform .2s,box-shadow .2s,border-color .2s}
-  .feat:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(9,121,91,.12);border-color:var(--primary)}
+  /* ===== #4 PROBLEM ===== */
+  .problem{background:var(--brand-bg)}
+  .problem .card{border-top:4px solid var(--orange)} /* brief: accent line #F7941D */
+  .problem .card h3{color:var(--charcoal)}
+
+  /* ===== #5 FEATURES (3×2) ===== */
   .feat h3{font-size:18px;color:var(--dark-green);margin-bottom:8px}
   .feat p{font-size:14px;color:var(--muted)}
-  .feat.wide{grid-column:span 2;background:linear-gradient(135deg,var(--primary),var(--dark-green));color:#fff;border:none;display:flex;flex-direction:column;justify-content:center}
-  .feat.wide h3{color:#fff;font-size:22px}
-  .feat.wide p{color:rgba(255,255,255,.85);font-size:15px;max-width:460px}
-  .feat.wide .ic-tile{background:rgba(255,255,255,.15)}
-  .feat.wide .ic{stroke:#fff}
 
-  /* ===== TIMELINE (how it works) ===== */
+  /* ===== #6 HOW (timeline) ===== */
   .how{background:linear-gradient(160deg,var(--forest) 0%,var(--dark-green) 100%);color:#fff}
   .how .section-title{color:#fff}
   .timeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:20px}
@@ -119,44 +111,40 @@
   .tl-step h3{font-size:16px;margin-bottom:8px}
   .tl-step p{font-size:13px;color:rgba(255,255,255,.75)}
 
-  /* ===== IMPACT BAND (duotone) ===== */
-  .impact{background:var(--brand-bg)}
-  .impact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
-  .duo{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 50px rgba(5,92,69,.25)}
-  .duo svg{position:absolute;inset:0;width:100%;height:100%}
-  .duo .overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,92,69,.85),rgba(9,121,91,.5));mix-blend-mode:multiply}
-  .duo .cap{position:absolute;left:22px;bottom:18px;color:#fff;font-size:13px;font-weight:600;z-index:3;text-shadow:0 1px 6px rgba(0,0,0,.4)}
-  .quote{font-size:20px;font-style:italic;font-weight:500;margin:14px 0 16px;color:var(--charcoal);border-left:4px solid var(--orange);padding-left:20px}
-  .quote-by{font-weight:700;font-size:14px;color:var(--muted);margin-bottom:30px}
-  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .metric{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:20px;text-align:center}
-  .metric .num{font-size:30px;font-weight:800;color:var(--orange)}
-  .metric .lbl{font-size:12px;color:var(--muted);font-weight:500}
-
-  /* ===== AUDIENCE ===== */
+  /* ===== #7 AUDIENCE ===== */
   .aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
   .aud{border-radius:18px;padding:40px;border:1.5px solid var(--border)}
   .aud.vn{background:var(--brand-bg)}
   .aud.intl{background:var(--orange-bg);border-color:#FFE0B2}
-  .aud h3{font-size:20px;margin-bottom:18px;display:flex;align-items:center;gap:12px}
-  .aud .ic{width:24px;height:24px}
+  .aud h3{font-size:20px;margin-bottom:18px;display:flex;align-items:flex-start;gap:12px;line-height:1.35}
+  .aud .ic{width:24px;height:24px;flex-shrink:0;margin-top:2px}
   .aud.intl .ic{stroke:var(--orange)}
   .tags{display:flex;flex-wrap:wrap;gap:8px}
   .tag{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600}
   .vn .tag{background:rgba(9,121,91,.1);color:var(--dark-green);border:1px solid rgba(9,121,91,.2)}
   .intl .tag{background:rgba(247,148,29,.12);color:#C8770F;border:1px solid rgba(247,148,29,.25)}
 
-  /* ===== BOTTOM CTA ===== */
+  /* ===== #8 IMPACT ===== */
+  .impact{background:var(--brand-bg)}
+  .impact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+  .quote{font-size:19px;font-style:italic;font-weight:500;margin:14px 0 16px;color:var(--charcoal);border-left:5px solid var(--primary);padding-left:22px}
+  .quote-by{font-weight:700;font-size:14px;color:var(--muted)}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .metric{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:22px 16px;text-align:center}
+  .metric .num{font-size:30px;font-weight:800;color:var(--orange)}
+  .metric .lbl{font-size:12.5px;color:var(--muted);font-weight:500}
+
+  /* ===== #9 CTA ===== */
   .cta{background:linear-gradient(135deg,var(--dark-green) 0%,var(--primary) 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
   .cta .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;pointer-events:none}
   .cta h2{font-size:38px;margin-bottom:16px;position:relative;z-index:2}
   .cta p{max-width:650px;margin:0 auto 34px;opacity:.92;position:relative;z-index:2}
   .cta .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
 
-  /* ===== FOOTER ===== */
+  /* ===== #10 FOOTER ===== */
   footer{background:var(--ink);padding:60px 0;color:rgba(255,255,255,.5);font-size:14px}
   .foot-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:36px;margin-bottom:28px}
-  .foot-top img{height:46px;opacity:.7;display:block}
+  .foot-top img{height:46px;opacity:.65;display:block}
   .foot-links a{color:rgba(255,255,255,.5);text-decoration:none;margin-left:24px;transition:color .2s}
   .foot-links a:hover{color:var(--orange)}
   .foot-copy{text-align:center;font-size:13px;opacity:.7}
@@ -165,20 +153,21 @@
     section{padding:64px 0}
     .nav-menu{display:none}
     .hero{padding-top:120px;text-align:center}
-    .hero-grid,.grid-3,.bento,.timeline,.impact-grid,.aud-grid{grid-template-columns:1fr}
+    .hero-grid,.grid-3,.timeline,.impact-grid,.aud-grid,.stats-grid{grid-template-columns:1fr}
+    .stats-grid{gap:30px}
     .hero h1{font-size:38px}
     .hero p{margin-left:auto;margin-right:auto}
     .hero-actions,.aud h3{justify-content:center}
-    .feat.wide{grid-column:span 1}
     .timeline::before{display:none}
     .mock{margin-top:50px}
+    .metrics{grid-template-columns:repeat(2,1fr)}
     .foot-top{flex-direction:column;gap:22px;text-align:center}
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- #1 NAV -->
 <header id="navbar"><nav class="nav">
   <div class="logo"><img src="assets/ASIF_LOGO1.png" alt="ASIF Foundation"></div>
   <ul class="nav-menu">
@@ -190,7 +179,7 @@
   </ul>
 </nav></header>
 
-<!-- HERO -->
+<!-- #2 HERO -->
 <section class="hero">
   <div class="blob" style="width:340px;height:340px;background:var(--primary);top:-80px;left:-60px"></div>
   <div class="blob" style="width:260px;height:260px;background:var(--orange);bottom:-60px;right:6%;opacity:.25"></div>
@@ -213,21 +202,18 @@
           <circle cx="18" cy="19" r="4.5" fill="#09795b"/>
           <rect x="30" y="15" width="84" height="9" rx="4.5" fill="#cfe9e1"/>
           <rect x="300" y="12" width="46" height="14" rx="7" fill="#F7941D"/>
-          <!-- sidebar -->
           <rect x="0" y="38" width="86" height="212" fill="#032b20"/>
           <rect x="16" y="58" width="54" height="8" rx="4" fill="#0a8d6a"/>
           <rect x="16" y="78" width="48" height="6" rx="3" fill="#3f6f63"/>
           <rect x="16" y="96" width="52" height="6" rx="3" fill="#3f6f63"/>
           <rect x="16" y="114" width="42" height="6" rx="3" fill="#3f6f63"/>
           <rect x="16" y="132" width="50" height="6" rx="3" fill="#3f6f63"/>
-          <!-- kpi cards -->
           <rect x="102" y="54" width="116" height="56" rx="9" fill="#F1F8F5"/>
           <rect x="116" y="66" width="40" height="6" rx="3" fill="#9fc7bb"/>
           <text x="116" y="98" font-family="Montserrat" font-weight="800" font-size="19" fill="#09795b">80%</text>
           <rect x="230" y="54" width="116" height="56" rx="9" fill="#FFF4E6"/>
           <rect x="244" y="66" width="40" height="6" rx="3" fill="#e9c79a"/>
           <text x="244" y="98" font-family="Montserrat" font-weight="800" font-size="19" fill="#F7941D">127+</text>
-          <!-- chart -->
           <rect x="102" y="122" width="244" height="106" rx="9" fill="#F1F8F5"/>
           <polyline points="118,200 152,184 186,190 220,164 254,172 288,140 326,130" fill="none" stroke="#09795b" stroke-width="2.6"/>
           <polyline points="118,210 152,202 186,196 220,200 254,186 288,182 326,170" fill="none" stroke="#F7941D" stroke-width="2.2" stroke-dasharray="4 4"/>
@@ -236,45 +222,40 @@
       </div>
       <div class="float-card float-a">
         <div class="dot" style="background:var(--brand-bg)"><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <div><b>Báo cáo gửi đi</b><br><span>20 phút, không phải 3 ngày</span></div>
+        <div><b>99.9% uptime</b><br><span>Hạ tầng Azure</span></div>
       </div>
       <div class="float-card float-b">
-        <div class="dot" style="background:var(--orange-bg)"><svg class="ic" viewBox="0 0 24 24" style="stroke:var(--orange)"><path d="M12 2v20M2 7l10-5 10 5"/></svg></div>
-        <div><b>+127 tổ chức</b><br><span>đang vận hành trên UP</span></div>
+        <div class="dot" style="background:var(--orange-bg)"><svg class="ic" viewBox="0 0 24 24" style="stroke:var(--orange)"><path d="M3 7h6l2 2h10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
+        <div><b>6 phân hệ</b><br><span>1 hệ thống duy nhất</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST STRIP -->
-<div class="trust"><div class="container">
-  <div class="lead">Được tin dùng bởi các tổ chức phi lợi nhuận trong nước & quốc tế</div>
-  <div class="logos">
-    <div class="lg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>HopeEd</div>
-    <div class="lg"><svg viewBox="0 0 24 24"><path d="M12 2 22 20H2Z"/></svg>GreenRoots</div>
-    <div class="lg"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 6-8 11-8 11Z"/></svg>KidsFirst</div>
-    <div class="lg"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/></svg>CareVN</div>
-    <div class="lg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Australis</div>
-    <div class="lg"><svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg>UnityAid</div>
-  </div>
+<!-- #3 STATS BAR -->
+<div class="stats-bar"><div class="container stats-grid">
+  <div><div class="stat-num">127+</div><div class="stat-label">Tổ chức đang dùng / Organizations</div></div>
+  <div><div class="stat-num">6</div><div class="stat-label">Phân hệ tích hợp / Integrated modules</div></div>
+  <div><div class="stat-num">99.9%</div><div class="stat-label">Uptime đảm bảo / Guaranteed uptime</div></div>
+  <div><div class="stat-num">0đ</div><div class="stat-label">Chi phí cho NPO / Cost for NPOs</div></div>
 </div></div>
 
-<!-- PROBLEM -->
+<!-- #4 PROBLEM -->
 <section id="why" class="problem"><div class="container">
   <h2 class="section-title reveal">Các NPO đang vận hành như thế này...</h2>
   <p class="section-subtext reveal">Những thách thức thực tế khiến các tổ chức phi lợi nhuận tiêu tốn nguồn lực.</p>
   <div class="grid-3">
-    <div class="card accent-orange reveal">
+    <div class="card reveal">
       <div class="ic-tile orange"><svg class="ic" viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/><path d="M3 12h18"/></svg></div>
       <h3>Dữ liệu rời rạc / Scattered data</h3>
       <p>Excel, Google Sheets, email, giấy tờ. Không có nguồn sự thật duy nhất. Báo cáo mất hàng ngày tổng hợp thủ công.</p>
     </div>
-    <div class="card accent-orange reveal" style="transition-delay:100ms">
+    <div class="card reveal" style="transition-delay:100ms">
       <div class="ic-tile orange"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
       <h3>Tài chính mù mờ / Opaque finances</h3>
       <p>Không theo dõi ngân sách dự án thời gian thực. Nhà tài trợ hỏi — mất 3 ngày mới có câu trả lời.</p>
     </div>
-    <div class="card accent-orange reveal" style="transition-delay:200ms">
+    <div class="card reveal" style="transition-delay:200ms">
       <div class="ic-tile orange"><svg class="ic" viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9"/><path d="M21 7v5h-5"/></svg></div>
       <h3>Khó đo tác động / Unmeasured impact</h3>
       <p>Không hệ thống theo dõi người thụ hưởng. Báo cáo cuối năm dựa trên ước tính, không phải số liệu thực.</p>
@@ -282,94 +263,69 @@
   </div>
 </div></section>
 
-<!-- FEATURES (bento) -->
+<!-- #5 FEATURES (6 modules · 3×2) -->
 <section id="features"><div class="container">
   <h2 class="section-title reveal">6 phân hệ, 1 hệ sinh thái</h2>
   <p class="section-subtext reveal">Every module shares the same data layer — so your project manager, finance team, and program staff always see the same truth.</p>
-  <div class="bento">
-    <div class="feat wide reveal">
-      <div class="ic-tile"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-      <h3>Một lớp dữ liệu, mọi phân hệ</h3>
-      <p>Dự án gắn với ngân sách, ngân sách gắn với nhà tài trợ, nhà tài trợ thấy được tác động lên người thụ hưởng — tất cả trong thời gian thực.</p>
-    </div>
-    <div class="feat reveal" style="transition-delay:80ms">
+  <div class="grid-3">
+    <div class="card feat reveal">
       <div class="ic-tile"><svg class="ic" viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
       <h3>Dự án / Projects</h3>
-      <p>Lập kế hoạch, phân công, theo dõi tiến độ gắn trực tiếp với ngân sách.</p>
+      <p>Lập kế hoạch, phân công, theo dõi tiến độ. Gắn kết trực tiếp với ngân sách và người thụ hưởng.</p>
     </div>
-    <div class="feat reveal">
+    <div class="card feat reveal" style="transition-delay:80ms">
       <div class="ic-tile"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3h4"/></svg></div>
       <h3>Tài chính / Finance</h3>
-      <p>Ngân sách, giải ngân, quyết toán theo dự án & nhà tài trợ. Dashboard thời gian thực.</p>
+      <p>Ngân sách, giải ngân, quyết toán theo từng dự án và nhà tài trợ. Dashboard thời gian thực.</p>
     </div>
-    <div class="feat reveal" style="transition-delay:80ms">
+    <div class="card feat reveal" style="transition-delay:160ms">
       <div class="ic-tile"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3 3 0 0 1 0 5.8M21 20c0-2.5-1.5-4.7-3.6-5.6"/></svg></div>
       <h3>Nhân sự / HR</h3>
-      <p>Hồ sơ nhân viên, phân công, đánh giá hiệu suất, quản lý tình nguyện viên.</p>
+      <p>Hồ sơ nhân viên, phân công công việc, đánh giá hiệu suất, quản lý tình nguyện viên.</p>
     </div>
-    <div class="feat reveal" style="transition-delay:160ms">
+    <div class="card feat reveal">
       <div class="ic-tile"><svg class="ic" viewBox="0 0 24 24"><path d="M8 21V11M3 11h18l-2 10H5L3 11ZM7 11l3-7 2 3 2-3 3 7"/></svg></div>
       <h3>Nhà tài trợ / Donors</h3>
-      <p>CRM hồ sơ donor, lịch sử đóng góp, báo cáo tác động tự động.</p>
+      <p>CRM hồ sơ donor, lịch sử đóng góp, báo cáo tác động tự động gửi đến từng nhà tài trợ.</p>
     </div>
-    <div class="feat reveal">
+    <div class="card feat reveal" style="transition-delay:80ms">
       <div class="ic-tile"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9Z"/></svg></div>
       <h3>Người thụ hưởng / Beneficiaries</h3>
       <p>Hồ sơ cá nhân, lịch sử can thiệp, đo lường kết quả theo KPI.</p>
     </div>
-    <div class="feat reveal" style="transition-delay:80ms">
+    <div class="card feat reveal" style="transition-delay:160ms">
       <div class="ic-tile"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div>
       <h3>Báo cáo / Reports</h3>
-      <p>Tổng hợp dữ liệu mọi phân hệ, xuất báo cáo cho donor, hội đồng & cơ quan quản lý.</p>
+      <p>Tổng hợp dữ liệu tất cả phân hệ, xuất báo cáo cho donor, hội đồng và cơ quan quản lý.</p>
     </div>
   </div>
 </div></section>
 
-<!-- HOW (timeline) -->
+<!-- #6 HOW (4 bước · timeline) -->
 <section id="how" class="how"><div class="container">
   <h2 class="section-title reveal">Lên sóng trong 4 bước đơn giản</h2>
   <p class="section-subtext reveal" style="color:rgba(255,255,255,.7)">Go live in 4 simple steps — ASIF Foundation supports you at every stage at no cost.</p>
   <div class="timeline">
-    <div class="tl-step reveal"><div class="tl-node">1</div><h3>Đăng ký & thẩm định</h3><p>Apply & Verify — Gửi đơn đăng ký NPO. ASIF xét duyệt và ký MOA trong 5–7 ngày làm việc.</p></div>
-    <div class="tl-step reveal" style="transition-delay:100ms"><div class="tl-node">2</div><h3>Thiết lập hệ thống</h3><p>Onboarding — ASIF cấu hình môi trường riêng. Kết nối SSO Microsoft 365 nếu có.</p></div>
-    <div class="tl-step reveal" style="transition-delay:200ms"><div class="tl-node">3</div><h3>Đào tạo người dùng</h3><p>Training — Đội ngũ ASIF và đối tác hỗ trợ đào tạo và tài liệu hướng dẫn.</p></div>
-    <div class="tl-step reveal" style="transition-delay:300ms"><div class="tl-node">4</div><h3>Vận hành & hỗ trợ</h3><p>Go Live — Tổ chức bắt đầu sử dụng. ASIF duy trì hạ tầng và hỗ trợ liên tục.</p></div>
+    <div class="tl-step reveal"><div class="tl-node">1</div><h3>Đăng ký & thẩm định</h3><p>Apply &amp; Verify — Gửi đơn đăng ký NPO. ASIF xét duyệt và ký MOA trong 5–7 ngày làm việc.</p></div>
+    <div class="tl-step reveal" style="transition-delay:100ms"><div class="tl-node">2</div><h3>Thiết lập hệ thống</h3><p>Onboarding — ASIF cấu hình môi trường riêng cho tổ chức. Kết nối SSO Microsoft 365 nếu có.</p></div>
+    <div class="tl-step reveal" style="transition-delay:200ms"><div class="tl-node">3</div><h3>Đào tạo người dùng</h3><p>Training — Đội ngũ ASIF và đối tác công nghệ hỗ trợ đào tạo và tài liệu hướng dẫn.</p></div>
+    <div class="tl-step reveal" style="transition-delay:300ms"><div class="tl-node">4</div><h3>Vận hành & hỗ trợ</h3><p>Go Live — Tổ chức bắt đầu sử dụng. ASIF duy trì hạ tầng và hỗ trợ kỹ thuật liên tục.</p></div>
   </div>
 </div></section>
 
-<!-- IMPACT (duotone band) -->
-<section class="impact"><div class="container impact-grid">
-  <div class="duo reveal">
-    <svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><rect width="200" height="150" fill="#8fa39c"/><circle cx="66" cy="60" r="24" fill="#a7b3ad"/><rect x="36" y="86" width="60" height="64" rx="12" fill="#a7b3ad"/><circle cx="128" cy="68" r="19" fill="#b6c0bb"/><rect x="106" y="90" width="46" height="60" rx="10" fill="#b6c0bb"/></svg>
-    <div class="overlay"></div>
-    <div class="cap">Chương trình giáo dục cộng đồng · NPO đối tác UP</div>
-  </div>
-  <div>
-    <span class="eyebrow reveal">Tác động thực tế</span>
-    <h2 class="section-title reveal" style="text-align:left;margin-bottom:6px">Kết quả thực tế từ cộng đồng UP</h2>
-    <p class="quote reveal">"Trước khi dùng UP, chúng tôi cần 3 ngày để tổng hợp báo cáo quý. Bây giờ chỉ cần 20 phút — số liệu luôn chính xác, minh bạch với nhà tài trợ."</p>
-    <div class="quote-by reveal">— Quản lý chương trình, NPO tại TP.HCM</div>
-    <div class="metrics">
-      <div class="metric reveal"><div class="num">80%</div><div class="lbl">Giảm thời gian báo cáo</div></div>
-      <div class="metric reveal" style="transition-delay:80ms"><div class="num">3×</div><div class="lbl">Tăng tốc quyết toán</div></div>
-      <div class="metric reveal" style="transition-delay:160ms"><div class="num">100%</div><div class="lbl">Minh bạch với donor</div></div>
-    </div>
-  </div>
-</div></section>
-
-<!-- AUDIENCE -->
+<!-- #7 AUDIENCE (2 card) -->
 <section id="audience"><div class="container">
   <h2 class="section-title reveal">UP phù hợp với ai?</h2>
   <p class="section-subtext reveal">UP was built specifically for the operational realities of nonprofits — not adapted from a corporate ERP.</p>
   <div class="aud-grid">
     <div class="aud vn reveal">
-      <h3><svg class="ic" viewBox="0 0 24 24"><path d="M12 22s-7-4-7-12a7 7 0 0 1 14 0c0 8-7 12-7 12Z"/><path d="M12 3v8M8 7h8"/></svg> Tổ chức phi lợi nhuận trong nước</h3>
+      <h3><svg class="ic" viewBox="0 0 24 24"><path d="M12 22s-7-4-7-12a7 7 0 0 1 14 0c0 8-7 12-7 12Z"/><path d="M12 3v8M8 7h8"/></svg> Tổ chức phi lợi nhuận trong nước (Vietnamese NPOs)</h3>
       <div class="tags">
         <span class="tag">Giáo dục</span><span class="tag">Y tế cộng đồng</span><span class="tag">Môi trường</span><span class="tag">Trẻ em & Gia đình</span><span class="tag">Phát triển cộng đồng</span>
       </div>
     </div>
     <div class="aud intl reveal" style="transition-delay:100ms">
-      <h3><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg> Tổ chức NPO quốc tế tại Australasia</h3>
+      <h3><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg> Tổ chức NPO quốc tế tại Australasia (International NPOs)</h3>
       <div class="tags">
         <span class="tag">Australia-based</span><span class="tag">Cross-border</span><span class="tag">Impact reporting</span><span class="tag">Multi-currency</span>
       </div>
@@ -377,13 +333,30 @@
   </div>
 </div></section>
 
-<!-- BOTTOM CTA -->
+<!-- #8 IMPACT (quote + 6 metrics) -->
+<section class="impact"><div class="container impact-grid">
+  <div class="reveal">
+    <h2 class="section-title" style="text-align:left;margin-bottom:18px">Kết quả thực tế từ cộng đồng UP</h2>
+    <p class="quote">"Trước khi dùng UP, chúng tôi cần 3 ngày để tổng hợp báo cáo quý. Bây giờ chỉ cần 20 phút — số liệu luôn chính xác, minh bạch với nhà tài trợ."</p>
+    <div class="quote-by">— Quản lý chương trình, NPO tại TP.HCM</div>
+  </div>
+  <div class="metrics">
+    <div class="metric reveal"><div class="num">80%</div><div class="lbl">Giảm thời gian làm báo cáo</div></div>
+    <div class="metric reveal" style="transition-delay:80ms"><div class="num">3×</div><div class="lbl">Tăng tốc độ quyết toán</div></div>
+    <div class="metric reveal" style="transition-delay:160ms"><div class="num">100%</div><div class="lbl">Minh bạch với nhà tài trợ</div></div>
+    <div class="metric reveal"><div class="num">0</div><div class="lbl">Sự cố bảo mật / Security incidents</div></div>
+    <div class="metric reveal" style="transition-delay:80ms"><div class="num">5+</div><div class="lbl">Năm vận hành liên tục</div></div>
+    <div class="metric reveal" style="transition-delay:160ms"><div class="num">24/7</div><div class="lbl">Hỗ trợ kỹ thuật / Technical support</div></div>
+  </div>
+</div></section>
+
+<!-- #9 CTA -->
 <section class="cta">
   <div class="blob" style="width:320px;height:320px;background:var(--orange);top:-90px;left:8%"></div>
   <div class="blob" style="width:280px;height:280px;background:#fff;bottom:-100px;right:6%;opacity:.15"></div>
   <div class="container reveal">
     <h2>Sẵn sàng chuyển đổi số tổ chức của bạn?</h2>
-    <p>UP hoàn toàn miễn phí cho các tổ chức phi lợi nhuận đủ điều kiện — được tài trợ bởi ASIF Foundation. / UP is completely free for eligible NPOs.</p>
+    <p>UP hoàn toàn miễn phí cho các tổ chức phi lợi nhuận đủ điều kiện — được tài trợ bởi ASIF Foundation. / UP is completely free for eligible NPOs, sponsored by ASIF Foundation.</p>
     <div class="btns">
       <a href="mailto:support@asif.foundation" class="btn btn-orange">Đăng ký ngay · Apply now →</a>
       <a href="https://asif.foundation" target="_blank" class="btn btn-outline">Tìm hiểu ASIF Foundation ↗</a>
@@ -391,7 +364,7 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- #10 FOOTER -->
 <footer><div class="container">
   <div class="foot-top">
     <img src="assets/ASIF_LOGO2.png" alt="ASIF Foundation">
