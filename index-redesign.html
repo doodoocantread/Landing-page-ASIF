@@ -135,9 +135,12 @@
 
   /* ===== #7 AUDIENCE ===== */
   .aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
-  .aud{border-radius:18px;padding:40px;border:1.5px solid var(--border)}
+  .aud{border-radius:18px;border:1.5px solid var(--border);overflow:hidden;padding:0}
   .aud.vn{background:var(--brand-bg)}
   .aud.intl{background:var(--orange-bg);border-color:#FFE0B2}
+  .aud-illus{display:block;width:100%}
+  .aud-illus svg{display:block;width:100%;height:auto}
+  .aud-body{padding:32px 40px 40px}
   .aud h3{font-size:20px;margin-bottom:18px;display:flex;align-items:flex-start;gap:12px;line-height:1.35}
   .aud .ic{width:24px;height:24px;flex-shrink:0;margin-top:2px}
   .aud.intl .ic{stroke:var(--orange)}
@@ -445,15 +448,69 @@
   <p class="section-subtext reveal">UP was built specifically for the operational realities of nonprofits — not adapted from a corporate ERP.</p>
   <div class="aud-grid">
     <div class="aud vn reveal">
-      <h3><svg class="ic" viewBox="0 0 24 24"><path d="M12 22s-7-4-7-12a7 7 0 0 1 14 0c0 8-7 12-7 12Z"/><path d="M12 3v8M8 7h8"/></svg> Tổ chức phi lợi nhuận trong nước (Vietnamese NPOs)</h3>
-      <div class="tags">
-        <span class="tag">Giáo dục</span><span class="tag">Y tế cộng đồng</span><span class="tag">Môi trường</span><span class="tag">Trẻ em & Gia đình</span><span class="tag">Phát triển cộng đồng</span>
+      <div class="aud-illus"><svg viewBox="0 0 520 180" role="img" aria-label="Cộng đồng NPO Việt Nam: giáo dục, y tế, môi trường">
+        <defs><linearGradient id="vnsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6f4ee"/><stop offset="1" stop-color="#F1F8F5"/></linearGradient></defs>
+        <rect width="520" height="180" fill="url(#vnsky)"/>
+        <!-- sun -->
+        <circle cx="438" cy="50" r="24" fill="#F7941D" opacity=".92"/>
+        <g stroke="#F7941D" stroke-width="3" stroke-linecap="round" opacity=".45"><line x1="438" y1="14" x2="438" y2="6"/><line x1="476" y1="50" x2="484" y2="50"/><line x1="465" y1="23" x2="471" y2="17"/><line x1="465" y1="77" x2="471" y2="83"/></g>
+        <!-- hills -->
+        <path d="M0 132 Q140 96 280 122 T520 112 V180 H0 Z" fill="#c4e2d6"/>
+        <path d="M0 150 Q170 116 330 144 T520 134 V180 H0 Z" fill="#0a8d6a"/>
+        <path d="M0 164 Q160 146 320 160 T520 156 V180 H0 Z" fill="#09795b"/>
+        <!-- community figures -->
+        <g><circle cx="150" cy="120" r="13" fill="#055c45"/><path d="M132 150 v-12 a18 18 0 0 1 36 0 v12 Z" fill="#055c45"/></g>
+        <g><circle cx="196" cy="112" r="15" fill="#F7941D"/><path d="M176 150 v-15 a20 20 0 0 1 40 0 v15 Z" fill="#F7941D"/></g>
+        <g><circle cx="242" cy="124" r="11" fill="#0a8d6a"/><path d="M227 150 v-10 a15 15 0 0 1 30 0 v10 Z" fill="#0a8d6a"/></g>
+        <!-- sector badges -->
+        <g>
+          <circle cx="70" cy="56" r="20" fill="#fff" stroke="#CDE7DE"/><path d="M60 53 l10-5 10 5 -10 5 Z M64 55 v6 c0 3 12 3 12 0 v-6" fill="none" stroke="#09795b" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="134" cy="44" r="20" fill="#fff" stroke="#CDE7DE"/><path d="M134 54 c-6-5-10-9-10-13 a5 5 0 0 1 10-2 5 5 0 0 1 10 2 c0 4-4 8-10 13 Z" fill="#F7941D"/>
+          <circle cx="300" cy="60" r="20" fill="#fff" stroke="#CDE7DE"/><path d="M300 70 c0-8 4-14 11-16 -1 8-5 13-11 16 Z M300 70 c0-8-4-14-11-16 1 8 5 13 11 16 Z" fill="#09795b"/>
+        </g>
+      </svg></div>
+      <div class="aud-body">
+        <h3><svg class="ic" viewBox="0 0 24 24"><path d="M12 22s-7-4-7-12a7 7 0 0 1 14 0c0 8-7 12-7 12Z"/><path d="M12 3v8M8 7h8"/></svg> Tổ chức phi lợi nhuận trong nước (Vietnamese NPOs)</h3>
+        <div class="tags">
+          <span class="tag">Giáo dục</span><span class="tag">Y tế cộng đồng</span><span class="tag">Môi trường</span><span class="tag">Trẻ em & Gia đình</span><span class="tag">Phát triển cộng đồng</span>
+        </div>
       </div>
     </div>
     <div class="aud intl reveal" style="transition-delay:100ms">
-      <h3><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg> Tổ chức NPO quốc tế tại Australasia (International NPOs)</h3>
-      <div class="tags">
-        <span class="tag">Australia-based</span><span class="tag">Cross-border</span><span class="tag">Impact reporting</span><span class="tag">Multi-currency</span>
+      <div class="aud-illus"><svg viewBox="0 0 520 180" role="img" aria-label="NPO quốc tế: kết nối xuyên biên giới, đa tiền tệ, báo cáo tác động">
+        <defs><linearGradient id="intsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0db"/><stop offset="1" stop-color="#FFF4E6"/></linearGradient></defs>
+        <rect width="520" height="180" fill="url(#intsky)"/>
+        <!-- globe -->
+        <g transform="translate(155,96)">
+          <circle r="62" fill="#fff" stroke="#F7941D" stroke-width="2.5"/>
+          <ellipse rx="24" ry="62" fill="none" stroke="#f3c389" stroke-width="1.5"/>
+          <ellipse rx="48" ry="62" fill="none" stroke="#f3c389" stroke-width="1.5"/>
+          <line x1="-62" y1="0" x2="62" y2="0" stroke="#f3c389" stroke-width="1.5"/>
+          <path d="M-60 -28 H60 M-60 28 H60" fill="none" stroke="#f3c389" stroke-width="1.5"/>
+          <!-- land -->
+          <path d="M-34 -20 q14 -8 24 2 t10 14 q-12 6 -24 0 t-10 -16 Z" fill="#bfe0d4"/>
+          <path d="M6 8 q16 -4 24 6 t-2 18 q-14 4 -22 -6 t0 -18 Z" fill="#bfe0d4"/>
+          <path d="M-26 24 q10 -2 14 6 t-6 10 q-10 0 -12 -8 Z" fill="#bfe0d4"/>
+        </g>
+        <!-- connection arcs + pins -->
+        <g fill="none" stroke="#F7941D" stroke-width="2" stroke-dasharray="5 5" opacity=".7">
+          <path d="M196 60 Q300 18 392 56"/>
+          <path d="M205 120 Q330 150 430 110"/>
+        </g>
+        <g>
+          <g transform="translate(392,56)"><path d="M0 0 C-8 -11 -8 -20 0 -20 C8 -20 8 -11 0 0 Z" fill="#F7941D"/><circle cy="-13" r="3.5" fill="#fff"/></g>
+          <g transform="translate(430,110)"><path d="M0 0 C-8 -11 -8 -20 0 -20 C8 -20 8 -11 0 0 Z" fill="#055c45"/><circle cy="-13" r="3.5" fill="#fff"/></g>
+        </g>
+        <!-- multi-currency badge -->
+        <g transform="translate(360,128)"><circle r="22" fill="#fff" stroke="#FFE0B2"/><text x="0" y="6" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="17" fill="#F7941D">$₫</text></g>
+        <!-- impact report badge -->
+        <g transform="translate(440,52)"><circle r="22" fill="#fff" stroke="#FFE0B2"/><g transform="translate(-11,-9)" fill="#09795b"><rect x="0" y="10" width="4" height="8" rx="1"/><rect x="7" y="5" width="4" height="13" rx="1"/><rect x="14" y="8" width="4" height="10" rx="1"/></g></g>
+      </svg></div>
+      <div class="aud-body">
+        <h3><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg> Tổ chức NPO quốc tế tại Australasia (International NPOs)</h3>
+        <div class="tags">
+          <span class="tag">Australia-based</span><span class="tag">Cross-border</span><span class="tag">Impact reporting</span><span class="tag">Multi-currency</span>
+        </div>
       </div>
     </div>
   </div>
