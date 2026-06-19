@@ -12,17 +12,20 @@
     <style>
         /* BRAND IDENTITY SYSTEM (Section 6) */
         :root {
-            --primary: #0EB689;
-            --primary-hover: #0ccf9e;
-            --dark-green: #007860;
-            --hero-grad-1: #002D22;
-            --hero-grad-2: #004D38;
-            --orange: #F7941D;
-            --charcoal: #424143;
-            --brand-bg: #F4FAF7;
+            /* ASIF CORE PALETTE — green primary, orange accent, black only as minimal fill */
+            --primary: #09795b;          /* ASIF green — primary */
+            --primary-hover: #0a8d6a;    /* lighter green for hover states */
+            --dark-green: #055c45;       /* deeper green for gradients & headings */
+            --hero-grad-1: #032b20;      /* very dark green (replaces near-black) */
+            --hero-grad-2: #064d3a;
+            --orange: #F7941D;           /* ASIF orange — accent */
+            --orange-hover: #ffa838;     /* lighter orange for hover states */
+            --orange-bg: #FFF4E6;        /* soft orange tint background */
+            --charcoal: #2A2A2A;         /* dark ink — TEXT ONLY, not large fills */
+            --brand-bg: #F1F8F5;         /* soft green tint background */
             --white: #FFFFFF;
-            --near-black: #1A1A1A;
-            --border-color: #D1EDE5;
+            --near-black: #06251B;        /* deep green-black for footer (replaces pure black) */
+            --border-color: #CDE7DE;
         }
 
         /* RESET & BASE STYLES */
@@ -130,6 +133,16 @@
 
         .btn-white:hover {
             background-color: #f0faf7;
+            transform: translateY(-1px);
+        }
+
+        .btn-orange {
+            background-color: var(--orange);
+            color: var(--white);
+        }
+
+        .btn-orange:hover {
+            background-color: var(--orange-hover);
             transform: translateY(-1px);
         }
 
@@ -272,7 +285,7 @@
         }
 
         .visual-card h4 {
-            color: var(--primary);
+            color: var(--orange); /* orange numerals pop on the deep-green hero */
             margin-bottom: 8px;
             font-size: 20px;
         }
@@ -284,7 +297,7 @@
 
         /* SECTION #3: STATS BAR */
         .stats-bar {
-            background-color: var(--charcoal);
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary) 100%);
             padding: 30px 0;
             color: var(--white);
         }
@@ -299,7 +312,7 @@
         .stat-item .stat-num {
             font-size: 40px;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--orange); /* orange pops on the green bar */
             line-height: 1.1;
             margin-bottom: 4px;
         }
@@ -372,7 +385,7 @@
 
         /* SECTION #6: HOW IT WORKS */
         .how-section {
-            background-color: var(--charcoal);
+            background: linear-gradient(160deg, var(--hero-grad-1) 0%, var(--dark-green) 100%);
             color: var(--white);
         }
 
@@ -395,7 +408,7 @@
         .step-num {
             width: 44px;
             height: 44px;
-            background-color: var(--primary);
+            background-color: var(--orange); /* orange accent steps the eye through the flow */
             color: var(--white);
             border-radius: 50%;
             display: flex;
@@ -828,7 +841,7 @@
             <h2>Sẵn sàng chuyển đổi số tổ chức của bạn?</h2>
             <p>UP hoàn toàn miễn phí cho các tổ chức phi lợi nhuận đủ điều kiện — được tài trợ bởi ASIF Foundation. / UP is completely free for eligible NPOs, sponsored by ASIF Foundation.</p>
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                <a href="mailto:support@asif.foundation" class="btn btn-white">Đăng ký ngay · Apply now →</a>
+                <a href="mailto:support@asif.foundation" class="btn btn-orange">Đăng ký ngay · Apply now →</a>
                 <a href="https://asif.foundation" target="_blank" class="btn btn-outline">Tìm hiểu ASIF Foundation ↗</a>
             </div>
         </div>
@@ -846,7 +859,7 @@
                     <a href="mailto:support@asif.foundation">support@asif.foundation</a>
                 </div>
             </div>
-            <div style="text-align: center; font-size: 13px; alpha: 0.7;">
+            <div style="text-align: center; font-size: 13px; opacity: 0.7;">
                 © 2026 ASIF Foundation · UP – Unified Platform for NPOs · Infrastructure operated by ASIF Foundation
             </div>
         </div>
