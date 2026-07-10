@@ -1,0 +1,5 @@
+Redeploy trigger for Vercel
+
+This file was updated to trigger a redeploy from the GitHub -> Vercel integration.
+
+Updated by GitHub Copilot on 2026-07-10 for repository doodoocantread/Landing-page-ASIF.
